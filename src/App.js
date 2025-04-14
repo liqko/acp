@@ -26,13 +26,9 @@ const links = [
 
 export default function App() {
   useEffect(() => {
-    // Inicializa Google Analytics (reemplazá con tu ID real)
     ReactGA.initialize("G-PMGCLQZ9E3");
-
-    // Envía la visita a Google Analytics
     ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 
-    // Lógica de instalación de PWA
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       window.deferredPrompt = event;
@@ -51,12 +47,12 @@ export default function App() {
   };
 
   return (
-    <div className="relative flex flex-col items-center p-4 min-h-screen w-full text-center overflow-hidden bg-black">
-      {/* Marca de agua como fondo completo (más oscura) */}
+    <div className="relative flex flex-col items-center p-5 min-h-screen w-full text-center overflow-hidden bg-black">
+      {/* Marca de agua con opacidad más baja */}
       <img
         src="logo.png"
         alt="Marca de agua"
-        className="absolute inset-0 w-full h-full object-contain opacity-7 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-contain opacity-[0.15] pointer-events-none select-none"
       />
 
       {/* Botón de instalación */}
@@ -92,44 +88,47 @@ export default function App() {
         ))}
       </div>
 
-      {/* Redes sociales */}
-      <div className="flex justify-center gap-6 mt-10 z-10">
-        <a
-          href="https://www.facebook.com/acp.contenidos/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="facebook.png"
-            alt="Facebook"
-            className="w-12 h-12 hover:scale-110 transition-transform"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/acp.contenidos/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="instagram.png"
-            alt="Instagram"
-            className="w-12 h-12 hover:scale-110 transition-transform"
-          />
-        </a>
-        <a
-          href="https://wa.me/5492245470550"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="whatsapp.png"
-            alt="Whatsapp"
-            className="w-12 h-12 hover:scale-110 transition-transform"
-          />
-        </a>
+      {/* Fondo translúcido blanco para redes */}
+      <div className="relative mt-10 z-10">
+        <div className="absolute inset-0 bg-white bg-opacity-20 rounded-xl blur-sm"></div>
+        <div className="relative flex justify-center gap-6 p-3">
+          <a
+            href="https://www.facebook.com/acp.contenidos/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="facebook.png"
+              alt="Facebook"
+              className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/acp.contenidos/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="instagram.png"
+              alt="Instagram"
+              className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+          </a>
+          <a
+            href="https://wa.me/5492245470550"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="whatsapp.png"
+              alt="Whatsapp"
+              className="w-12 h-12 hover:scale-110 transition-transform"
+            />
+          </a>
+        </div>
       </div>
 
-      {/* Botón de Políticas de Privacidad y Descargo (abajo de todo) */}
+      {/* Botón de Políticas de Privacidad */}
       <a
         href="https://www.guialocaldolores.com.ar/acp/app/app-politica-de-privacidad/"
         target="_blank"
