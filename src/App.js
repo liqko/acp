@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ReactGA from "react-ga4";
 
 const links = [
   {
@@ -25,6 +26,13 @@ const links = [
 
 export default function App() {
   useEffect(() => {
+    // Inicializa Google Analytics (reemplazá con tu ID real)
+    ReactGA.initialize("G-PMGCLQZ9E3");
+
+    // Envía la visita a Google Analytics
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+
+    // Lógica de instalación de PWA
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       window.deferredPrompt = event;
@@ -48,7 +56,7 @@ export default function App() {
       <img
         src="logo.png"
         alt="Marca de agua"
-        className="absolute inset-0 w-full h-full object-contain opacity-5 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-contain opacity-7 pointer-events-none select-none"
       />
 
       {/* Botón de instalación */}
