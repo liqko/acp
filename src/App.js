@@ -44,11 +44,11 @@ export default function App() {
 
   return (
     <div className="relative flex flex-col items-center p-4 min-h-screen w-full text-center overflow-hidden bg-black">
-      {/* Marca de agua como fondo completo */}
+      {/* Marca de agua como fondo completo (más oscura) */}
       <img
         src="logo.png"
         alt="Marca de agua"
-        className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-contain opacity-5 pointer-events-none select-none"
       />
 
       {/* Botón de instalación */}
@@ -120,6 +120,16 @@ export default function App() {
           />
         </a>
       </div>
+
+      {/* Botón de Políticas de Privacidad y Descargo (abajo de todo) */}
+      <a
+        href="https://www.guialocaldolores.com.ar/acp/app/app-politica-de-privacidad/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-10 px-4 py-2 bg-red-700 text-white text-sm font-semibold rounded-md w-full max-w-sm z-10"
+      >
+        Políticas de privacidad y descargo de responsabilidad
+      </a>
     </div>
   );
 }
